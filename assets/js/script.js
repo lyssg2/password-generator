@@ -49,18 +49,18 @@ function generatePassword() {
 
     if (confirmLowercase === false && confirmUppercase === false && confirmNumber === false && confirmSpecial === false) {
 
-        // if user says no to all, end app with error that they should pick at least 1
+        // if user says no to all, end app with error that they should pick at least 1 criteria
 
         alert("Password must have at least one lowercase, uppercase or special character");
         return null;
     }
 
-    // variables for character generation
+    // variables for character generation, stored here
 
     var userInputs = null
     var randomValue = ""
 
-    // for the number of characters that the user picks, concatonate based off of character sets
+    // for the number of characters that the user picks, concatonate based off of character set variables
 
     if (confirmLowercase === true) {
         userInputs += lowercase
@@ -78,7 +78,7 @@ function generatePassword() {
         userInputs += special
     }
 
-    // Generates the password loop 
+    // Generates the password loop to create random password based on criteria user selects
     for (let i = 0; i < passwordLength; i++) {
         randomValue += userInputs.charAt(Math.floor(Math.random() * userInputs.length));
         console.log(randomValue)
@@ -88,5 +88,5 @@ function generatePassword() {
 
 
 
-// Add event listener to generate button
+// When user clicks "Generate Password" button, functions are called to generate and write password
 generateBtn.addEventListener("click", writePassword)
